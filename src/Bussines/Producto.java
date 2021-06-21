@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Bussines;
 
 import DataAccess.DataAccess;
@@ -20,7 +16,7 @@ public class Producto {
     private String nombreP;
     private String caducidadP;
     private int stock;
-    private int idFar;
+    private int idFarmacia;
     private String nombreF;
     private int activo;
 
@@ -31,7 +27,7 @@ public class Producto {
         this.nombreP = nombre;
         this.caducidadP = caducidad;
         this.stock = stock;
-        this.idFar = idFarmacia;
+        this.idFarmacia = idFarmacia;
         this.nombreF = nombreF;
         this.activo = activo;
     }
@@ -69,11 +65,11 @@ public class Producto {
     }
 
     public int getIdFarmacia() {
-        return idFar;
+        return idFarmacia;
     }
 
     public void setIdFarmacia(int idFarmacia) {
-        this.idFar = idFarmacia;
+        this.idFarmacia = idFarmacia;
     }
 
     public String getNombreF() {
@@ -120,15 +116,15 @@ public class Producto {
         caducidadP = (String)res.getValueAt(0, 2);
         stock = (int)res.getValueAt(0, 3);
         activo = (int)res.getValueAt(0, 4);
-        idFar = (int)res.getValueAt(0, 5);
+        idFarmacia = (int)res.getValueAt(0, 5);
         nombreF = (String)res.getValueAt(0, 6);
     }
      
      
     //INSERT INTO TABLA(C1, C2) VALUES(V1, V2);
     public boolean add(){
-        String query = "INSERT INTO productos(nombreP, caducidadP, stock, idFar, nombreF, activo) " +
-                "VALUES('" + nombreP + "','" + caducidadP + "'," + stock + "," + idFar + ",'" + nombreF + "'," + activo + ");";
+        String query = "INSERT INTO productos(nombreP, caducidadP, stock, idFarmacia, nombreF, activo) " +
+                "VALUES('" + nombreP + "','" + caducidadP + "'," + stock + "," + idFarmacia + ",'" + nombreF + "'," + activo + ");";
         return dataAccess.Execute(query) >= 1;        
     }
     
@@ -143,7 +139,7 @@ public class Producto {
                 "nombreP = '" + nombreP + "', " +
                 "caducidadP = '" + caducidadP + "', " +
                 "stock = " + stock + ", " +
-                "idFarmacia = " + idFar + ", " +
+                "idFarmacia = " + idFarmacia + ", " +
                 "nombreF = '" + nombreF + "', " +
                 "activo = " + activo + " " + 
                 "WHERE idProducto = " +idProducto;      

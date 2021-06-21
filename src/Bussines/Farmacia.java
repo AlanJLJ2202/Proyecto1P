@@ -11,26 +11,26 @@ import javax.swing.table.DefaultTableModel;
 public class Farmacia {
     
     private DataAccess dataAccess = DataAccess.Instance();
-    private int idFar, telefonoF;
+    private int idFarmacia, telefonoF;
     private String nombreF, direccionF;
     private int activo;
 
     public Farmacia(){}
     
-    public Farmacia(int idFar, int telefonoF, String nombreF, String direccionF, int activo) {
-        this.idFar = idFar;
+    public Farmacia(int idFarmacia, int telefonoF, String nombreF, String direccionF, int activo) {
+        this.idFarmacia = idFarmacia;
         this.telefonoF = telefonoF;
         this.nombreF = nombreF;
         this.direccionF = direccionF;
         this.activo = activo;
     }
 
-    public int getIdFar() {
-        return idFar;
+    public int getIdFarmacia() {
+        return idFarmacia;
     }
 
-    public void setIdFar(int idFar) {
-        this.idFar = idFar;
+    public void setIdFarmacia(int idFarmacia) {
+        this.idFarmacia = idFarmacia;
     }
 
     public int getTelefonoF() {
@@ -75,9 +75,9 @@ public class Farmacia {
     }
     
      public void GetById(){
-        String query =  "SELECT * FROM farmacias WHERE idFarmacia = " + idFar;
+        String query =  "SELECT * FROM farmacias WHERE idFarmacia = " + idFarmacia;
         DefaultTableModel res = dataAccess.Query(query);
-        idFar = (int)res.getValueAt(0, 0);
+        idFarmacia = (int)res.getValueAt(0, 0);
         nombreF = (String)res.getValueAt(0, 1);
         direccionF = (String)res.getValueAt(0, 2);
         telefonoF = (int)res.getValueAt(0, 3);
@@ -92,7 +92,7 @@ public class Farmacia {
     }
     
     public boolean Delete(){
-        String query = "DELETE FROM farmacias WHERE idFarmacia = " + idFar;
+        String query = "DELETE FROM farmacias WHERE idFarmacia = " + idFarmacia;
         return dataAccess.Execute(query) >= 1; 
     }
     
@@ -103,7 +103,7 @@ public class Farmacia {
                 "direccionF = '" + direccionF + "', " +
                 "telefonoF = " + telefonoF + ", " +
                 "activo = " + activo + " " + 
-                "WHERE idFarmacia = " +idFar;      
+                "WHERE idFarmacia = " +idFarmacia;      
         return dataAccess.Execute(query) >= 1; 
     }
     

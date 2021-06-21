@@ -20,6 +20,17 @@ public class DataAccess {
     private Statement  statement;
     private ResultSet resultSet;
     
+    
+    private DataAccess(){}
+    
+    public static DataAccess Instance(){
+        if(instance == null)
+            instance =  new DataAccess();
+        return instance;
+    }
+    
+  
+    
     //--------------------------------------------------------------------------------------
     
     public void ConectarDB(){

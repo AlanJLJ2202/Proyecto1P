@@ -5,7 +5,9 @@
  */
 package ViewLayer;
 
+import Bussines.Farmacia;
 import Bussines.Producto;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,7 +35,7 @@ public class frmProducto extends javax.swing.JInternalFrame {
         jToolBar1 = new javax.swing.JToolBar();
         btnActualizar = new javax.swing.JButton();
         btnNuevo = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         pProductos = new javax.swing.JScrollPane();
         tProductos = new javax.swing.JTable();
@@ -50,24 +52,44 @@ public class frmProducto extends javax.swing.JInternalFrame {
         btnActualizar.setFocusable(false);
         btnActualizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnActualizar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
         jToolBar1.add(btnActualizar);
 
         btnNuevo.setText("Nuevo");
         btnNuevo.setFocusable(false);
         btnNuevo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnNuevo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
         jToolBar1.add(btnNuevo);
 
-        jButton3.setText("Modificar");
-        jButton3.setFocusable(false);
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton3);
+        btnModificar.setText("Modificar");
+        btnModificar.setFocusable(false);
+        btnModificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnModificar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnModificar);
 
         btnEliminar.setText("Eliminar");
         btnEliminar.setFocusable(false);
         btnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnEliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
         jToolBar1.add(btnEliminar);
 
         tProductos.setModel(new javax.swing.table.DefaultTableModel(
@@ -101,12 +123,49 @@ public class frmProducto extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+       if(tProductos.getSelectedRow() >= 0){
+          int idProducto = (int)tProductos.getValueAt(tProductos.getSelectedRow(), 0);
+          Producto pro = new Producto();
+          pro.setIdProducto(idProducto);
+          pro.Delete();
+          tProductos.setModel(new Producto().mostrarTodo());
+      }else{
+          JOptionPane.showMessageDialog(null, "Selecciona un registro porfavor");
+      }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+       frmNProducto np = new frmNProducto();
+       np.setTitle("Nuevo Producto");
+       np.setModal(true);
+       np.setVisible(true);
+       tProductos.setModel(new Producto().mostrarTodo());
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+          if(tProductos.getSelectedRow() >= 0){
+          int idProducto = (int)tProductos.getValueAt(tProductos.getSelectedRow(), 0);
+          frmNProducto np = new frmNProducto(idProducto);
+          np.setTitle("Modificar Producto");
+          np.setModal(true);
+          np.setVisible(true);
+          
+      }else{
+          JOptionPane.showMessageDialog(null, "Selecciona un registro porfavor");
+      }                
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+       tProductos.setModel(new Producto().mostrarTodo());
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevo;
-    private javax.swing.JButton jButton3;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JScrollPane pProductos;
     private javax.swing.JTable tProductos;

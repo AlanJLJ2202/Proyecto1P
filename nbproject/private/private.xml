@@ -2,6 +2,18 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/C:/Users/gerch/Desktop/Prueba/ProyectoPrueba/src/Bussines/Producto.java</file>
+            <file>file:/C:/Users/gerch/Desktop/Prueba/ProyectoPrueba/src/ViewLayer/frmFarmacia.java</file>
+            <file>file:/C:/Users/gerch/Desktop/Prueba/ProyectoPrueba/src/ViewLayer/frmNProducto.java</file>
+            <file>file:/C:/Users/gerch/Desktop/Prueba/ProyectoPrueba/src/ViewLayer/frmProducto.java</file>
+            <file>file:/C:/Users/gerch/Desktop/Prueba/ProyectoPrueba/src/ViewLayer/frmNFarmacia.java</file>
+            <file>file:/C:/Users/gerch/Desktop/Prueba/ProyectoPrueba/src/DataAccess/DataAccess.java</file>
+            <file>file:/C:/Users/gerch/Desktop/Prueba/ProyectoPrueba/src/Bussines/Farmacia.java</file>
+        </group>
+>>>>>>> 30729f1ce050ae0e7b32dd8c763f8c342f10ba02
     </open-files>
 </project-private>

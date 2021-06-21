@@ -5,6 +5,12 @@
  */
 package ViewLayer;
 
+import java.awt.BorderLayout;
+import javafx.scene.layout.Border;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+
 /**
  *
  * @author AJLJ-
@@ -16,6 +22,9 @@ public class frmMain extends javax.swing.JFrame {
      */
     public frmMain() {
         initComponents();
+        
+        
+        
     }
 
     /**
@@ -27,7 +36,8 @@ public class frmMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        pPrincipal = new javax.swing.JScrollPane();
+        pPestañas = new javax.swing.JTabbedPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         btnArchivo = new javax.swing.JMenu();
         btnSalir = new javax.swing.JMenuItem();
@@ -36,6 +46,9 @@ public class frmMain extends javax.swing.JFrame {
         btnProductos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SimiSoft1P");
+
+        pPrincipal.setViewportView(pPestañas);
 
         btnArchivo.setText("Archivo");
 
@@ -75,16 +88,15 @@ public class frmMain extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 733, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(pPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -95,11 +107,15 @@ public class frmMain extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnFarmaciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFarmaciasActionPerformed
-       
+         frmFarmacia fm = new frmFarmacia();
+         pPestañas.addTab("Farmacias", fm);
+         
+          
     }//GEN-LAST:event_btnFarmaciasActionPerformed
 
     private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
-       
+          frmProducto fp = new frmProducto();
+         pPestañas.addTab("Productos", fp);
     }//GEN-LAST:event_btnProductosActionPerformed
 
     /**
@@ -144,6 +160,7 @@ public class frmMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnProductos;
     private javax.swing.JMenuItem btnSalir;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane pPestañas;
+    private javax.swing.JScrollPane pPrincipal;
     // End of variables declaration//GEN-END:variables
 }

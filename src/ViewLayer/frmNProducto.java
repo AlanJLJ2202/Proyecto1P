@@ -126,6 +126,12 @@ public class frmNProducto extends javax.swing.JDialog {
 
         jLabel5.setText("Farmacia:");
 
+        cFarmacias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cFarmaciasActionPerformed(evt);
+            }
+        });
+
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -276,6 +282,10 @@ public class frmNProducto extends javax.swing.JDialog {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void cFarmaciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cFarmaciasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cFarmaciasActionPerformed
 
     /**
      * @param args the command line arguments

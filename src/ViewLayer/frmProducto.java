@@ -7,7 +7,9 @@ package ViewLayer;
 
 import Bussines.Farmacia;
 import Bussines.Producto;
+import DataAccess.DataAccess;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,9 +20,12 @@ public class frmProducto extends javax.swing.JInternalFrame {
     /**
      * Creates new form frmProducto
      */
+    
+    private DataAccess dataAccess = DataAccess.Instance();
+    
     public frmProducto() {
         initComponents();
-        tProductos.setModel(new Producto().mostrarTodo());
+        tProductos.setModel(new Producto().Prueba());
     }
 
     /**
@@ -37,6 +42,9 @@ public class frmProducto extends javax.swing.JInternalFrame {
         btnNuevo = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        btnMostrar = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         pProductos = new javax.swing.JScrollPane();
         tProductos = new javax.swing.JTable();
 
@@ -92,6 +100,39 @@ public class frmProducto extends javax.swing.JInternalFrame {
         });
         jToolBar1.add(btnEliminar);
 
+        btnMostrar.setText("Mostrar todo");
+        btnMostrar.setFocusable(false);
+        btnMostrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnMostrar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnMostrar);
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.setFocusable(false);
+        btnBuscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBuscar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnBuscar);
+
+        jButton1.setText("Ascendente");
+        jButton1.setFocusable(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton1);
+
         tProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -129,7 +170,7 @@ public class frmProducto extends javax.swing.JInternalFrame {
           Producto pro = new Producto();
           pro.setIdProducto(idProducto);
           pro.Delete();
-          tProductos.setModel(new Producto().mostrarTodo());
+          tProductos.setModel(new Producto().Prueba());
       }else{
           JOptionPane.showMessageDialog(null, "Selecciona un registro porfavor");
       }
@@ -140,7 +181,7 @@ public class frmProducto extends javax.swing.JInternalFrame {
        np.setTitle("Nuevo Producto");
        np.setModal(true);
        np.setVisible(true);
-       tProductos.setModel(new Producto().mostrarTodo());
+       tProductos.setModel(new Producto().Prueba());
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
@@ -156,16 +197,45 @@ public class frmProducto extends javax.swing.JInternalFrame {
       }                
     }//GEN-LAST:event_btnModificarActionPerformed
 
+    
+    
+    
+   // public DefaultTableModel Buscar(){
+        //String query = "SELECT * FROM productos" +
+          //              "WHERE nombreP LIKE '" +  + "'";
+     //   return dataAccess.Query(query);
+       //}
+    
+    
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-       tProductos.setModel(new Producto().mostrarTodo());
+       tProductos.setModel(new Producto().Prueba());
     }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        tProductos.setModel(new Producto().mostrarTodo());
+    }//GEN-LAST:event_btnMostrarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        frmBuscar fb = new frmBuscar();
+       fb.setTitle("Buscar");
+       fb.setModal(true);
+       fb.setVisible(true);
+       tProductos.setModel(new Producto().Prueba());
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         tProductos.setModel(new Producto().Ascendente());        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnMostrar;
     private javax.swing.JButton btnNuevo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JScrollPane pProductos;
     private javax.swing.JTable tProductos;

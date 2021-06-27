@@ -73,6 +73,15 @@ public class Farmacia {
         String query = "SELECT * FROM farmacias";
         return dataAccess.Query(query);
     }
+     
+     public DefaultTableModel Buscar(String entrada){
+           String query = "SELECT idCategoria AS ID, nombre AS Nombre " +
+                          "FROM Categorias " +
+                          "LIKE '%" + entrada + "%'";
+        return dataAccess.Query(query);
+       }
+     
+     
     
      public void GetById(){
         String query =  "SELECT * FROM farmacias WHERE idFarmacia = " + idFarmacia;

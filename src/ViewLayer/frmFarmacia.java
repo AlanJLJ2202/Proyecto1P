@@ -36,6 +36,7 @@ public class frmFarmacia extends javax.swing.JInternalFrame {
         btnNuevo = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        btnCerrar = new javax.swing.JButton();
         pFarmacias = new javax.swing.JScrollPane();
         tFarmacias = new javax.swing.JTable();
 
@@ -88,6 +89,17 @@ public class frmFarmacia extends javax.swing.JInternalFrame {
             }
         });
         jToolBar1.add(btnEliminar);
+
+        btnCerrar.setText("Cerrar");
+        btnCerrar.setFocusable(false);
+        btnCerrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCerrar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnCerrar);
 
         tFarmacias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -161,9 +173,14 @@ public class frmFarmacia extends javax.swing.JInternalFrame {
       tFarmacias.setModel(new Farmacia().GetAllModel());
     }//GEN-LAST:event_btnActualizarActionPerformed
 
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+       this.dispose();
+    }//GEN-LAST:event_btnCerrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevo;

@@ -107,6 +107,19 @@ public class Producto {
                                "FROM productos";
         return dataAccess.Query(query);
     }
+     
+       
+       
+       public DefaultTableModel Ascendente(){
+           String query = "SELECT idProducto AS ID, nombreP AS Nombre " +
+                          "FROM productos " +
+                          "ORDER BY idProducto DESC";
+        return dataAccess.Query(query);
+       }
+       
+       
+       
+       
     
      public void GetById(){
         String query =  "SELECT * FROM productos WHERE idProducto = " + idProducto;

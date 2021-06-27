@@ -29,15 +29,16 @@ public class DataAccess {
         return instance;
     }
     
-  
+ 
     
     //--------------------------------------------------------------------------------------
     
     public void ConectarDB(){
         try{
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/prueba1p", 
-                    "Alan", 
-                    "Alan1P");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simisoft1p", 
+                    "root", 
+                    "Skyrim117");
+            
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error en la conexion: " + e.getMessage());
         }
